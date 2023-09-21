@@ -24,25 +24,32 @@ body {
   margin-bottom: 60px;
 }
 
+
+
+
+
 .carosel-box {
     display: flex;
     justify-content: center;
-    height: 100vh;
+    margin: 10px;
 }
 
 .cell{
   float: left;
+  overflow: auto;
 }
 
 
 
-.button-container button {
+
+.navigate-cabins-button {
+    width: 50%;
     float: left;
-    height: 200px;
-}
-.button-container {
-    float: left;
-    height: 200px; /* Optional, adjust as needed */
+    border: 2px solid black;
+    border-radius: 10px;
+    background:#0094ff;
+
+   
 }
 
 .calender-day-container {
@@ -54,6 +61,7 @@ body {
     margin: 4px;
     width: fit-content;
     overflow: auto;
+   
 }
 
 .calender-day-cell {
