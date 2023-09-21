@@ -1,6 +1,9 @@
 html {
   font-size: 14px;
 }
+*{
+    box-sizing:border-box;
+}
 
 @media (min-width: 768px) {
   html {
@@ -24,7 +27,6 @@ body {
 .carosel-box {
     display: flex;
     justify-content: center;
-
     height: 100vh;
 }
 
@@ -42,6 +44,38 @@ body {
     float: left;
     height: 200px; /* Optional, adjust as needed */
 }
+
+.calender-day-container {
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap; /* Lägg till flex-wrap för att låta elementen flöda till en ny rad när de inte ryms på samma rad */
+    justify-content: center;
+    margin: 4px;
+    width: fit-content;
+    overflow: auto;
+}
+
+.calender-day-cell {
+    border: 1px solid black;
+    border-radius: 2px;
+    flex: 0 0 calc(20% - 8px);
+    margin: 4px;
+    text-align: center;
+}
+
+    /* Få den sista cellen att ta upp lika mycket utrymme som de andra cellerna med full rad */
+.calender-day-container:last-child {
+    flex-basis: 20%; /* Sätt flex-basis till 20% för den sista cellen */
+    justify-content: left;
+}
+
+
+
+
+
+
+
 
 
 
