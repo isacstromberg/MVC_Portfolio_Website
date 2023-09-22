@@ -1,20 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC_Portfolio_Website.Models;
+using MVC_Portfolio_Website.Repositories;
 using System.Diagnostics;
 
 namespace MVC_Portfolio_Website.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IEstateRepo repo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IEstateRepo repo)
         {
-            _logger = logger;
+            this.repo = repo;
         }
 
         public IActionResult Index()
         {
+            IEstateRepo repo = new MockData();
+            repo.AddEstate(new Estate(4));
+            var estates = repo.GetEstates();
             return View();
         }
 
