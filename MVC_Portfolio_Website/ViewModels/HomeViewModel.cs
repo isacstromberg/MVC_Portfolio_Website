@@ -1,0 +1,10 @@
+﻿using MVC_Portfolio_Website.Models;
+
+namespace MVC_Portfolio_Website.ViewModels
+{
+    public class HomeViewModel
+    {
+        public List<Estate> Estates { get; set; }
+
+    }
+}

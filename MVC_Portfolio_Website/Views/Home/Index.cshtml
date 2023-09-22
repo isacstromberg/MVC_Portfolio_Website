@@ -1,4 +1,6 @@
-﻿@{
+﻿@using MVC_Portfolio_Website.ViewModels;
+@model HomeViewModel;
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -15,16 +17,16 @@
     <div class="carosel-box">
  
 
-    
-    <div class="cell">
+    @foreach (var estate in Model.Estates)
+    {
+         <div class="cell">
+        <p> @estate.Model</p>
         <img src="https://th.bing.com/th/id/OIP.4LylgNwtQcX8HXCoPjo6BAHaEv?w=278&h=180&c=7&r=0&o=5&pid=1.7" />
+            <a asp-action="book" asp-route-id="@estate.Id"> Boka</a>
     </div>
-    <div class="cell">
-        <img src="https://th.bing.com/th/id/OIP.4LylgNwtQcX8HXCoPjo6BAHaEv?w=278&h=180&c=7&r=0&o=5&pid=1.7" />
-    </div>
-    <div class="cell">
-        <img src="https://th.bing.com/th/id/OIP.4LylgNwtQcX8HXCoPjo6BAHaEv?w=278&h=180&c=7&r=0&o=5&pid=1.7" />
-    </div>
+
+    }
+ 
 
 </div>
     <button class="navigate-cabins-button"> < </button>

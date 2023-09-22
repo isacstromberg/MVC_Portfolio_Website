@@ -2,11 +2,15 @@
 {
     public class Estate
     {
-        public Estate(int id)
-        {
-            Id = id;
-        }
+        public string Model { get; set; }
 
         public int Id { get; set; }
+        public Estate(int id, string model)
+        {
+            Id = id;
+            Model = model;
+        }
+
+     
     }
 }

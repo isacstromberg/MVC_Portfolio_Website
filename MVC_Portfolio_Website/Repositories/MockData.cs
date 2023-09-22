@@ -8,9 +8,9 @@ namespace MVC_Portfolio_Website.Repositories
     
         private List<Estate> _estates = new List<Estate>
         {
-            new Estate(1),
-            new Estate(2),
-            new Estate(3)
+            new Estate(1,"Stuga"),
+            new Estate(2,"Stuga"),
+            new Estate(3,"Stuga")
         };
         public List<Estate> GetEstates()
         {

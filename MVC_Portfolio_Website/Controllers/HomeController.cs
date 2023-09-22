@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC_Portfolio_Website.Models;
 using MVC_Portfolio_Website.Repositories;
+using MVC_Portfolio_Website.ViewModels;
 using System.Diagnostics;
 
 namespace MVC_Portfolio_Website.Controllers
@@ -16,10 +17,20 @@ namespace MVC_Portfolio_Website.Controllers
 
         public IActionResult Index()
         {
-            IEstateRepo repo = new MockData();
-            repo.AddEstate(new Estate(4));
+
             var estates = repo.GetEstates();
-            return View();
+            var model = new HomeViewModel();
+            model.Estates = estates;
+            return View(model);
+        }
+
+        public IActionResult Book(int? id)
+        {
+            var estates = repo.GetEstates();
+            var model = new HomeViewModel();
+            model.Estates = estates;
+
+            return View("Index", model);
         }
 
         public IActionResult Privacy()
