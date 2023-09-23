@@ -11,6 +11,7 @@ namespace MVC_Portfolio_Website.Data
 
         }
 
-       // public DbContext<Estate> Estates { get; set; }
+        //Database set
+      public System.Data.Entity.DbSet<Estate> Estates { get; set; }
     }
 }

@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using MVC_Portfolio_Website.Data;
 using MVC_Portfolio_Website.Repositories;
 
 
@@ -6,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IEstateRepo, MockData>();
+builder.Services.AddDbContext<EstateContext>(options => options.UseNpgsql());   
 
 var app = builder.Build();
 
