@@ -7,8 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IEstateRepo, MockData>();
-builder.Services.AddDbContext<EstateContext>(options => options.UseNpgsql());   
+builder.Services.AddScoped<IEstateRepo, DbRepository>();
+var dbKey = builder.Configuration["ConnectionString"];
+builder.Services.AddDbContext<EstateContext>(options => options.UseNpgsql(dbKey));  
 
 var app = builder.Build();
 

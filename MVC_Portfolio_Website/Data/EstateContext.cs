@@ -6,12 +6,15 @@ namespace MVC_Portfolio_Website.Data
 {
     public class EstateContext : Microsoft.EntityFrameworkCore.DbContext
     {
-        public EstateContext(DbContextOptions<EstateContext> options) : base(options)
+     /*   public EstateContext(DbContextOptions<EstateContext> options) : base(options)
         {
 
+        }*/
+        public EstateContext(DbContextOptions<EstateContext> options) : base(options)
+        {
         }
 
         //Database set
-      public System.Data.Entity.DbSet<Estate> Estates { get; set; }
+        public Microsoft.EntityFrameworkCore.DbSet<Estate> Estates { get; set; }
     }
 }

@@ -8,9 +8,6 @@ namespace MVC_Portfolio_Website.Repositories
         List<Estate> GetEstates();
        
 
-        //public interface IEstateRepo
-        //{
-        //    public List<Estate> GetEstates();
-        //}
+      
     }
 }

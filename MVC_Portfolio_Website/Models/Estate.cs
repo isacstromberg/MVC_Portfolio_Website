@@ -1,18 +1,35 @@
-﻿namespace MVC_Portfolio_Website.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace MVC_Portfolio_Website.Models
 {
     public class Estate
     {
+
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        [Required]
         public string Model { get; set; }
 
-        public int Id { get; set; }
-        public Estate(int id, string model)
+        public string Name { get; set; }
+        public Estate(int id, string model,string name)
         {
             Id = id;
             Model = model;
+            Name = name;    
         }
 
 
-      
+        public Estate()
+        {
+
+        }
+
+
+
+
 
     }
 }

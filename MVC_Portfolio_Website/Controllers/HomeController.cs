@@ -17,8 +17,14 @@ namespace MVC_Portfolio_Website.Controllers
 
         public IActionResult Index()
         {
-
+         
             var estates = repo.GetEstates();
+            var newEstate = new Estate()
+            {
+                Model = "Test",
+                Name = "test stuga",
+            };
+            repo.AddEstate(newEstate);
             var model = new HomeViewModel();
             model.Estates = estates;
             return View(model);
@@ -26,6 +32,12 @@ namespace MVC_Portfolio_Website.Controllers
 
         public IActionResult Book(int? id)
         {
+           /* var newEstate = new Estate()
+            {
+                Model = "Ny estate",
+                Name = "Lorems stuga",
+            };
+          newEstate = repo.AddEstate(newEstate);  */
             var estates = repo.GetEstates();
             var model = new HomeViewModel();
             model.Estates = estates;
