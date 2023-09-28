@@ -6,11 +6,11 @@ namespace MVC_Portfolio_Website.Repositories
     public class DbRepository : IEstateRepo
     {
         private readonly EstateContext context;
-        private List<Estate> _estates = new List<Estate>
-        {
+        //private List<Estate> _estates = new List<Estate>
+        //{
        
-            new Estate(3,"Stuga", "Einars stuga")
-        };
+        //    new Estate(3,"Stuga", "Einars stuga")
+        //};
 
         public DbRepository(EstateContext context)
         {
@@ -19,16 +19,24 @@ namespace MVC_Portfolio_Website.Repositories
 
         public Estate AddEstate(Estate estate)
         {
-           // _estates.Add(estate);
-            context.Add(estate);
-            context.SaveChanges();
+            // _estates.Add(estate);
+            try
+            {
+                context.Add(estate);
+                context.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             return estate;
         }
 
         public List<Estate> GetEstates()
         {
-          
-            return _estates;
+
+            return context.Estates.ToList();
         }
 
         /*

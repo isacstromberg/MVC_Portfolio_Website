@@ -15,3 +15,4 @@ function calendarCellClicked(cell) {
     cell.style.backgroundColor = "green";
     selectedCell = cell;
 }
+

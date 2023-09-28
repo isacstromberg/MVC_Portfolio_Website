@@ -34,9 +34,9 @@ body {
     margin: 10px;
 }
 
-.cell{
-  float: left;
-  overflow: auto;
+.cell {
+    float: left;
+    overflow: hidden; /* Dölj eventuell overflow */
 }
 
 

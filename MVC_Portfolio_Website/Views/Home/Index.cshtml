@@ -4,6 +4,8 @@
     ViewData["Title"] = "Home Page";
 }
 
+
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
@@ -16,14 +18,92 @@
   
     <div class="carosel-box">
  
+@*@for (int i = 0; i < Model.Estates.Count; i++)
+    {
+        if (i < 3)
+        {
+            var estate = Model.Estates[i];
+            <div class="cell">
+                <p> @estate.Model</p>
+                <img src="https://th.bing.com/th/id/OIP.4LylgNwtQcX8HXCoPjo6BAHaEv?w=278&h=180&c=7&r=0&o=5&pid=1.7" />
+                <a asp-action="book" asp-route-id="@estate.Id"> Boka</a>
+            </div>
+
+            if (i == 1)
+            {
+             int toggledCabin = @estate.Id;
+            }
+        }
+        else
+        {
+            break;
+        }
+    
+    }*@
+   @* @foreach (var estate in Model.Estates)
+    {
+        if (estate.IsToggled == true)
+        {
+            int toggledCabin = estate.Id;
+
+            @foreach (var displayedEstate in Model.Estates)
+            {
+                if (toggledCabin - displayedEstate.Id == 1 )
+                {
+                    <div class="cell">
+                        <p> @estate.Model</p>
+                        <img src="https://th.bing.com/th/id/OIP.4LylgNwtQcX8HXCoPjo6BAHaEv?w=278&h=180&c=7&r=0&o=5&pid=1.7" />
+                        <a asp-action="book" asp-route-id="@estate.Id"> Boka</a>
+                    </div>
+                }
+                if (displayedEstate.Id - displayedEstate.Id == 0)
+                {
+
+                }
+                if (displayedEstate.Id - toggledCabin == 1)
+                {
+                    <div class="cell">
+                        <p> @estate.Model</p>
+                        <img src="https://th.bing.com/th/id/OIP.4LylgNwtQcX8HXCoPjo6BAHaEv?w=278&h=180&c=7&r=0&o=5&pid=1.7" />
+                        <a asp-action="book" asp-route-id="@estate.Id"> Boka</a>
+                    </div>
+                }
+                           
+            }
+        }
+        
+     
+
+    }*@
 
     @foreach (var estate in Model.Estates)
     {
-         <div class="cell">
-        <p> @estate.Model</p>
-        <img src="https://th.bing.com/th/id/OIP.4LylgNwtQcX8HXCoPjo6BAHaEv?w=278&h=180&c=7&r=0&o=5&pid=1.7" />
-            <a asp-action="book" asp-route-id="@estate.Id"> Boka</a>
-    </div>
+        if (Model.SelectedEstate - estate.Id == 1)
+        {
+            <div class="cell">
+                <p> @estate.Id</p>
+                <img src="https://th.bing.com/th/id/OIP.4LylgNwtQcX8HXCoPjo6BAHaEv?w=278&h=180&c=7&r=0&o=5&pid=1.7" />
+                <a asp-action="book" asp-route-id="@estate.Id"> Boka</a>
+            </div>
+        }
+
+        if (estate.Id == Model.SelectedEstate)
+        {
+            <div class="cell">
+                <p> @estate.Id</p>
+                <img src="https://th.bing.com/th/id/OIP.4LylgNwtQcX8HXCoPjo6BAHaEv?w=278&h=180&c=7&r=0&o=5&pid=1.7" />
+                <a asp-action="book" asp-route-id="@estate.Id"> Boka</a>
+            </div>
+        }
+        if (estate.Id - Model.SelectedEstate == 1)
+        {
+            <div class="cell">
+                <p> @estate.Id</p>
+                <img src="https://th.bing.com/th/id/OIP.4LylgNwtQcX8HXCoPjo6BAHaEv?w=278&h=180&c=7&r=0&o=5&pid=1.7" />
+                <a asp-action="book" asp-route-id="@estate.Id"> Boka</a>
+            </div>
+        }
+
 
     }
  
@@ -31,7 +111,9 @@
 </div>
     <button class="navigate-cabins-button"> < </button>
     <button class="navigate-cabins-button"> > </button>
-  
+  <div>
+      <p> Här presenteras information om stuga..</p>
+  </div>
 
 
 

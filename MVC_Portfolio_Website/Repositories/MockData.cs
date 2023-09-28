@@ -6,11 +6,11 @@ namespace MVC_Portfolio_Website.Repositories
     public class MockData : IEstateRepo
     {
     
-        private List<Estate> _estates = new List<Estate>
+       private List<Estate> _estates = new List<Estate>
         {
-            new Estate(1,"Stuga", "Kalles stuga"),
-            new Estate(2,"Stuga", "Annas stuga"),
-            new Estate(3,"Stuga", "Einars stuga")
+            new Estate(1,"Stuga", "Kalles stuga", false),
+            new Estate(2,"Stuga", "Annas stuga", true),
+            new Estate(3,"Stuga", "Einars stuga", false)
         };
         public List<Estate> GetEstates()
         {

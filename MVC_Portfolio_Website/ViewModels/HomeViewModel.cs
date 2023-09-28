@@ -6,5 +6,7 @@ namespace MVC_Portfolio_Website.ViewModels
     {
         public List<Estate> Estates { get; set; }
 
+        public int SelectedEstate { get; set; }
+
     }
 }

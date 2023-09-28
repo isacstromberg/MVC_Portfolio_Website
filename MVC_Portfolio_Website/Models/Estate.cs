@@ -14,11 +14,14 @@ namespace MVC_Portfolio_Website.Models
         public string Model { get; set; }
 
         public string Name { get; set; }
-        public Estate(int id, string model,string name)
+
+        public bool IsToggled { get; set; }
+        public Estate(int id, string model,string name, bool istoggled)
         {
             Id = id;
             Model = model;
-            Name = name;    
+            Name = name;   
+            IsToggled = istoggled;
         }
 
 

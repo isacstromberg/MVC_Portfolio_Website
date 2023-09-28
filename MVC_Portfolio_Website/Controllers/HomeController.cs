@@ -17,27 +17,33 @@ namespace MVC_Portfolio_Website.Controllers
 
         public IActionResult Index()
         {
-         
+            int selectedEstate = 0;
             var estates = repo.GetEstates();
-            var newEstate = new Estate()
+
+            //var newEstate = new Estate()
+            //{
+            //    Model = "Timmerstuga",
+            //    Name = "Lorem stuga",
+            //    IsToggled = false,
+            //};
+            //repo.AddEstate(newEstate);
+            foreach (var estate in estates)
             {
-                Model = "Test",
-                Name = "test stuga",
-            };
-            repo.AddEstate(newEstate);
+                if (estate.IsToggled == true)
+                {
+                    selectedEstate = estate.Id;
+                }
+            }
+            
             var model = new HomeViewModel();
             model.Estates = estates;
+            model.SelectedEstate = selectedEstate;
             return View(model);
         }
 
         public IActionResult Book(int? id)
         {
-           /* var newEstate = new Estate()
-            {
-                Model = "Ny estate",
-                Name = "Lorems stuga",
-            };
-          newEstate = repo.AddEstate(newEstate);  */
+     
             var estates = repo.GetEstates();
             var model = new HomeViewModel();
             model.Estates = estates;
